@@ -1,0 +1,63 @@
+-- создание и использование типов-сумм типов-сумм
+--
+
+type FirstName = String
+type MiddleName = String
+type LastName = String
+data Name = Name FirstName LastName
+            | NameWithMiddle FirstName MiddleName LastName
+            | TwoInitialsWithLast Char Char LastName
+
+newtype Author = Author Name
+
+data Artist = Person Name | Band String
+
+data Creator = AuthorCreator Author | ArtistCreator Artist
+    deriving Show
+
+data Book = Book {
+    author    :: Creator
+  , isbn      :: String
+  , bookTitle :: String
+  , bookYear  :: Int
+  , bookPrice :: Double
+}
+
+data VinylRecord = VinylRecord {
+    artist :: Creator
+  , recordTitle :: String
+  , recordYear  :: Int
+  , recordPrice :: Double
+}
+
+data CollectibleToy = CollectibleToy {
+    name        :: String
+  , description :: String
+  , toyPrice    :: Double
+}
+
+-- Задача 1.6
+data Pamhlet = Pamhlet {
+    name           :: String
+  , description    :: String
+  , conatactInform :: String
+  , pamhletPrice   :: Double
+}
+
+data StoreItem = BookItem Book
+                 | RecordItem VinylRecord
+                 | ToyItem CollectibleToy
+                 | PamhletItem Pamhlet
+
+price :: StoreItem -> Double
+price (BookItem book) = bookPrice book
+price (RecordItem record) = recordPrice record
+price (ToyItem toy) = toyPrice toy
+price (PamhletItem pamhlet) pamhletPrice pamhlet
+
+madeBy :: StoreItem -> String
+madeBy (BookItem book) = show $ author book
+madeBy (RecordItem record) = show $ artist record
+madeBy (ToyItem toy) = name toy
+madeBy _ = "unknow"
+

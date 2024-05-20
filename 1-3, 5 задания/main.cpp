@@ -28,7 +28,7 @@ int main()
          << "Введите a и b: ";
     cin >> a >> b;
 
-    auto [v, u, d] = nod_extended(a, b);
+    auto [v, u, d] = nod_extended(a, b, true);
     cout << "НОД(a, b) = " << d << endl
          << "v*a + u*b = d: "
          << v << "*" << a << " + " << u << "*" << b

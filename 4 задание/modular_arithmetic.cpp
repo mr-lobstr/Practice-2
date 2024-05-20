@@ -86,10 +86,3 @@ nod_extended (num_type a, num_type b)
 
 	return make_tuple(v, u, b);
 }
-
-// int main()
-// {
-// 	auto [v, u, r] = nod_extended(7, 11);
-// 	cout << v << " " << u << " " << r << endl;
-
-// }

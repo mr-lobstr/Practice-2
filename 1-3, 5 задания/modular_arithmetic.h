@@ -18,7 +18,7 @@ num_type pow_mod_Fermats (num_type a, num_type x, num_type p);
 num_type pow_mod(num_type a, num_type x, num_type p);
 
 std::tuple<num_type, num_type, num_type>
-nod_extended (num_type a, num_type b);
+nod_extended (num_type a, num_type b, bool);
 
 num_type inverse_mod (num_type a, num_type m);
 

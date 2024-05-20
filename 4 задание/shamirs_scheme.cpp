@@ -1,4 +1,4 @@
-`#include "shamirs_scheme.h"
+#include "shamirs_scheme.h"
 using namespace std;
 
 vector<num_type> rand_unique_natural_nums (int k)
